@@ -1,14 +1,17 @@
-ci.yml
 name: CI Test
+
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
+
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout du dépôt
-uses: actions/checkout@v3
-- name: Test simple
-run: echo "CI Pipeline exécuté avec succès !"
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v3
+        
+      - name: Test simple
+        run: echo "CI Pipeline exécuté avec succès !"
