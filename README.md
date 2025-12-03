@@ -1,1 +1,11 @@
 # demo-devops
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test DevOps</title>
+</head>
+<body>
+<h1>Bienvenue dans le pipeline DevOps</h1>
+</body>
+</html>
