@@ -1,4 +1,4 @@
-name: CI Test
+name: Docker Build CI
 
 on:
   push:
@@ -6,11 +6,16 @@ on:
       - main
 
 jobs:
-  build:
+  build-docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout du dépôt
+      - name: 1. Récupérer le code
         uses: actions/checkout@v3
       
-      - name: Test simple
-        run: echo "CI Pipeline exécuté avec succès !"
+      - name: 2. Construire l'image Docker
+        # C'est ici que la magie opère : on fabrique l'image "mon-site-web"
+        run: docker build -t mon-site-web .
+        
+      - name: 3. Vérification
+        # Juste pour prouver que l'image existe
+        run: docker image ls
