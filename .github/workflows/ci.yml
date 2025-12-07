@@ -1,4 +1,4 @@
-name: Docker Build CI
+name: CI DevOps Complete
 
 on:
   push:
@@ -6,16 +6,27 @@ on:
       - main
 
 jobs:
-  build-docker:
+  build-and-infra:
     runs-on: ubuntu-latest
     steps:
-      - name: 1. Récupérer le code
+      # 1. Récupérer le code
+      - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: 2. Construire l'image Docker
-        # C'est ici que la magie opère : on fabrique l'image "mon-site-web"
+
+      # 2. Partie Docker
+      - name: Build Docker Image
         run: docker build -t mon-site-web .
-        
-      - name: 3. Vérification
-        # Juste pour prouver que l'image existe
-        run: docker image ls
+
+      # 3. Partie Terraform (Installation)
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_wrapper: false
+
+      # 4. Terraform Init
+      - name: Terraform Init
+        run: terraform init
+
+      # 5. Terraform Apply
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
