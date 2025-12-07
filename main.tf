@@ -10,4 +10,4 @@ terraform {
 # La ressource à créer : Un simple fichier texte
 resource "local_file" "exemple_infra" {
   content  = "Ceci est la preuve que Terraform est passé par là !"
-  filename = "${path.module}/infrastructure_validee.txt"
+  filename = "${path.module}/infrastructure_validee.txt"}
