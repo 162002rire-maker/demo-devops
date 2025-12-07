@@ -6,7 +6,7 @@ Bienvenue sur le dépôt de mon projet d'initiation au DevOps. Ce projet démont
 
 Le site est déployé automatiquement et accessible ici :
 
-👉 Lien vers mon site GitHub Pages (Remplace ce lien par ta vraie URL GitHub Pages)
+👉 Lien vers mon site GitHub Pages (https://162002rire-maker.github.io/demo-devops/)
 
 🛠️ Stack Technique
 
